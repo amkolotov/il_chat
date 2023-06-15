@@ -3,6 +3,7 @@ logs/
 staticfiles/
 static/
 media/
+templates/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
