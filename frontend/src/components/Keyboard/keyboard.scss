@@ -1,0 +1,42 @@
+.keyboard-controller {
+  position: relative;
+  display: flex;
+  font-size: 14px;
+  line-height: 20px;
+
+  textarea::placeholder {
+    color: #666668;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.keyboard {
+  width: 100%;
+  padding: 15px 50px 15px 15px;
+  border: none;
+  font-size: 14px;
+  line-height: 20px;
+  resize: none;
+  outline: none;
+  box-shadow: inset 0px 1px 0px #E5E5EA;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.send {
+  cursor: pointer;
+  position: absolute;
+  right: 28px;
+  bottom: 15px;
+
+  path {
+    transition: all ease 0.3s;
+  }
+
+  &_active path {
+    fill: var(--primary)
+  }
+}
