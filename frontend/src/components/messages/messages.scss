@@ -1,17 +1,59 @@
-.messages {
-  padding: 80px 30px 30px 30px;
-  height: 100%;
-  max-height: 100%;
-  overflow: scroll;
+.messages-container {
+  background: var(--bgWhite);
+  height: calc(100vh - 50px);
+}
+
+.header {
+  height: 68px;
   width: 100%;
+  max-width: 546px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0px -1px 0px #E5E5EA;
+  z-index: 1;
+  background: var(--bgWhite);
+
+  @media (min-width: 768px) and (max-width: 1200px) {
+    max-width: 696px;
+  }
+
+
+  &__exit {
+    position: absolute;
+    top: 0;
+    right: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  & p {
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+}
+
+.messages {
+  padding: 90px 25px 25px 25px;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  flex: 1;
 
   &::-webkit-scrollbar {
     display: none;
   }
+}
+.message-date {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--lightText);
 }
 
 .message {
@@ -25,25 +67,25 @@
 
   &__corner-out {
     position: absolute;
-    top: -7px;
+    top: 0;
     right: -8px;
   }
 
   &__corner-in {
     position: absolute;
-    top: -7px;
+    top: 0;
     left: -8px;
   }
 
   &__in {
-    background: var(--messageInBg);
+    background: var(--bgMessageIn);
     border-radius: 0 6px 6px 6px;
 
   }
 
   &__out {
     background: var(--primary);
-    color: #FFFFFF;
+    color: var(--bgWhite);
     align-self: flex-end;
     border-radius: 6px 0 6px 6px;
 
@@ -52,9 +94,13 @@
     }
   }
 
+  &__added {
+    border-radius: 6px;
+  }
+
   &__footer {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     position: relative;
   }
 

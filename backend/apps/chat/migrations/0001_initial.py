@@ -15,22 +15,22 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Room',
+            name="Room",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=256, unique=True, verbose_name='Комната')),
-                ('current_users', models.ManyToManyField(blank=True, related_name='user_current_rooms', to=settings.AUTH_USER_MODEL, verbose_name='Текущие пользователи')),
-                ('host', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='user_rooms', to=settings.AUTH_USER_MODEL, verbose_name='Хост')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("name", models.CharField(max_length=256, unique=True, verbose_name="Комната")),
+                ("current_users", models.ManyToManyField(blank=True, related_name="user_current_rooms", to=settings.AUTH_USER_MODEL, verbose_name="Текущие пользователи")),
+                ("host", models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name="user_rooms", to=settings.AUTH_USER_MODEL, verbose_name="Хост")),
             ],
         ),
         migrations.CreateModel(
-            name='Message',
+            name="Message",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.TextField(max_length=512, verbose_name='Сообщение')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')),
-                ('room', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='room_messages', to='chat.room', verbose_name='Комната')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='user_messages', to=settings.AUTH_USER_MODEL, verbose_name='Пользователь')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("text", models.TextField(max_length=512, verbose_name="Сообщение")),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")),
+                ("room", models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name="room_messages", to="chat.room", verbose_name="Комната")),
+                ("user", models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name="user_messages", to=settings.AUTH_USER_MODEL, verbose_name="Пользователь")),
             ],
         ),
     ]

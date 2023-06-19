@@ -7,7 +7,7 @@ from django.core.asgi import get_asgi_application
 
 from apps.chat import routing
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 
 
 application = ProtocolTypeRouter(
