@@ -1,5 +1,5 @@
 logs/
-.env
+#.env
 staticfiles/
 static/
 media/

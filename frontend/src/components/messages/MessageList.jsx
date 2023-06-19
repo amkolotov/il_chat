@@ -120,6 +120,7 @@ const MessageList = ({roomId, socket}) => {
           } else {
             setUnreadMessagesIds(prevState => [...prevState, data.data.id])
           }
+          setCountMembers(data.data.members_count)
           setLastMessage(data.data)
           break;
         case "update":
@@ -129,6 +130,7 @@ const MessageList = ({roomId, socket}) => {
             messagesState[index].readCount = data.data.read_count;
             return messagesState;
           });
+          setCountMembers(data.data.members_count)
           break;
         default:
           break;

@@ -18,13 +18,19 @@ class MessageSerializer(serializers.ModelSerializer):
     """Сериализатор сообщения"""
     user = UserSerializer()
     read_count = serializers.SerializerMethodField()
+    members_count = serializers.SerializerMethodField()
 
     class Meta:
         model = Message
-        fields = ["id", "text", "user", "created_at", "read_count"]
+        fields = [
+            "id", "text", "user", "created_at", "read_count", "members_count"
+        ]
 
     def get_read_count(self, obj: Message):
         return obj.read_users.count()
+
+    def get_members_count(self, obj: Message):
+        return obj.room.current_users.count()
 
 
 class RoomDetailSerializer(serializers.ModelSerializer):
